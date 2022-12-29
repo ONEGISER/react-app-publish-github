@@ -1,2 +1,2 @@
 /// <reference types="react-scripts" />
-declare var wx: any
+declare var config: any

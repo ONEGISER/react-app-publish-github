@@ -14,6 +14,7 @@ import * as promiseUtils from "@arcgis/core/core/promiseUtils";
 import * as geometryEngine from "@arcgis/core/geometry/geometryEngine"
 import { DynamicChart } from "./dynamicChart";
 import { ChartData, PieChart } from "./pieChart";
+import { ConfigExt } from "../config";
 
 export interface MapProps {
 
@@ -176,7 +177,7 @@ export class Map extends React.Component<MapProps, MapState>{
         // 人口图层，以geojson图层加载
         this.populayer = new GeoJSONLayer({
             id: "人口",
-            url: "/datas/shandongpopu.geojson",//数据路径
+            url: ConfigExt.dataUrl,//数据路径
             renderer: renderer,
             labelingInfo: [labelClass],
             elevationInfo: {
@@ -633,7 +634,7 @@ export class Map extends React.Component<MapProps, MapState>{
             {/* 图例 */}
             {created && <Card size="small" title={"图例"} id="legendDiv" style={{ padding: 10, width: 220 }}></Card>}
             {/* 查询面板 */}
-            {created && <Card size="small" title={"几何图形查询"} id="queryDiv" style={{ padding: 10,width:220 }}>
+            {created && <Card size="small" title={"几何图形查询"} id="queryDiv" style={{ padding: 10, width: 220 }}>
                 <Row style={{ width: "100%" }} >
                     <Button
                         style={{ marginLeft: 10 }}
